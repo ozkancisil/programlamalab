@@ -1,0 +1,16 @@
+def power(a,b):
+    if  b == 1:
+         return a
+     
+    if b == 0:
+        return 1
+    
+    m =1
+    
+    for i in range(b):
+        m *= a
+        
+    return m 
+    
+    
+        
