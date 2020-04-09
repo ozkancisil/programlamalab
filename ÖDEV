@@ -1,0 +1,57 @@
+import csv,os,sys
+arg1 = sys.argv[1]
+path = arg1 + "\\input_hw_2.csv"
+arg2 = sys.argv[2]
+receiver = arg2 + "\\180401043_hw_02_output.txt"
+
+with open(path,"r") as csv_file:
+    bilgiler=csv.reader(csv_file, delimiter=';')
+    i=0
+    sıralama=bilgiler.split(";")##bilgilerdeki listede ; bunu her gördüğünde ayrı yazıcak
+    cıkıs=[]
+    for i in range(3,len(sıralama),3):##3 ten başlıyoruz çünkü ayrılma tarihi 3.de
+        cıkıs.append(sıralama[i].split("-"))##ayrılma tarihini yıl ay gün olarak ayırıyoruz
+    cıkısayi=[]
+    for i in range(len(cıkıs)):
+        cıkısayi.append(cıkıs[i][1])##[1] yazdık çünkü aya göre sıralicaz
+    ay= my_frequency_with_dict(cıkısayi)
+
+ print(ay)
+
+sayilar = []
+for i,j in ay.items():
+    sayilar.append(j)
+
+sayilar2 = buble_sort(sayilar)
+
+
+
+## histogram bulma##
+def my_frequency_with_dict(list):
+    frequency_dict={}
+    for item in list:
+        if(item in frequency_dict):
+            frequency_dict[item]=frequency_dict[item]+1
+        else:
+            frequency_dict[item]=1
+    return frequency_dict
+##ortalama bulma##
+def my_mean(list):
+    s,t=0,0
+    for item in list:
+        s=s+1
+        t=t+item
+    mean_=t/s
+    return mean_
+##bubble sort ile sıralama##
+def bubble_sort(list):
+    n=len(list)
+    print(list)
+    for i in range (n-1,-1,-1):
+        for j in range(0,i):
+            if not (list[j]<list[j+1]):
+                temp=list[j]
+                list[j]=list[j+1]
+                list[j+1]=temp
+    return list
+##medyan bulma##
