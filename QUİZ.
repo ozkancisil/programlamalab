@@ -1,0 +1,42 @@
+Exponential distribution
+Olasılık kuramı ve istatistik bilim dallarında üstel dağılımı bir sürekli olasılık dağılımları grubudur. 
+Sabit ortalama değişme haddinde ortaya çıkan bağımsız olaylar arasındaki zaman aralığını modelleştirirken bir üstel dağılım 
+doğal olarak ortaya çıkar.
+
+
+import sympy as  sym from sympy import Symbol from sympy import pprint
+import sympy.plotting as syp import matplotlib.pyplot as plt
+%matplotlib inline
+%matplotlib notebook 
+x=Symbol('x')
+m=Symbol('lambda')
+işlem=(m*sym.exp(-m*x)) #x>0 olduğu zaman bu ifade geçerlidir 
+#x>=0 ise	işlem=0
+exponential_distribution=işlem print(exponential_distribution) pprint(exponential_distribution
+
+
+lambda*exp(-lambda*x)
+   -λ⋅x
+λ⋅ℯ  
+
+
+syp.plot(exponential_distribution.subs({m:2}),(x,2,15),title="Exponential Distribution")#değerleri girerek grafiği oluşturur
+<sympy.plotting.plot.Plot at 0x2d741f4a5c8>
+x_value=[]
+y_value=[]
+for value in range(6):
+    y=exponential_distribution.subs({m:2,x:value}).evalf()#m=5 olarak değer atadım
+    y_value.append(y)
+    x_value.append(value)
+plt.plot(x_value,y_value)
+[<matplotlib.lines.Line2D at 0x2d7427db488>]
+
+
+
+
+
+
+
+
+
+
