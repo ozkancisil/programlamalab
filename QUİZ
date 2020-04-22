@@ -1,0 +1,23 @@
+lesson_1_sympy_example_limit
+
+import sympy as sym
+from sympy import Symbol,limit,pprint t=Symbol('t')
+st=5*t**2+2*t+8 pprint(st)
+
+2
+5.t	+ 2.t + 8
+
+t1=Symbol('t1') delta_t=Symbol('delta_t') St1=st.subs({t:t1}) St1_delta=st.subs({t:t1+delta_t})
+limit((St1_delta-St1)/delta_t, delta_t, 0).doit() 
+t1=Symbol('t1') delta_t=Symbol('delta_t') St1=st.subs({t:t1}) St1_delta=st.subs({t:t1+delta_t})
+limit((St1_delta-St1)/delta_t, delta_t, 0).doit() 
+
+10t1+2
+
+lesson_2_sympy_example_integral
+
+from sympy import exp,sqrt,Integral,pi x=Symbol('x')
+p=exp(-(x-10)**2/2)/sqrt(2*pi) p
+Integral(p,(x,1,2)).doit().evalf()
+
+6.21983198586583.10**-6
